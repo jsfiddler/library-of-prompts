@@ -23,3 +23,16 @@ A prompt for generating a cohesive set of minimalist vector icons. Ideal for UI/
 - **Model:** Gemini 3 Flash / Nano Banana
 - **Tags:** #vector #minimalism #iconography #ui-ux #line-art
 - **Date Created:** 2026-02-11
+
+# Cubic Tomato 3D Render
+
+## Description
+A surrealist product photography prompt featuring a cubical tomato. Excellent for testing a model's ability to combine geometric constraints with organic textures and realistic lighting.
+
+## The Prompt
+> A 3D render of a cubical tomato with a realistic green stem on a minimalist, plain, beige background. Soft, diffused lighting, high-quality product photography style, clean and modern.
+
+## Metadata
+- **Model:** Gemini 3 Flash / Nano Banana
+- **Tags:** #3d-render #surrealism #product-photography #minimalist #geometry
+- **Date Created:** 2026-02-11
