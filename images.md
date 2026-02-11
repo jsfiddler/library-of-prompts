@@ -36,3 +36,24 @@ A surrealist product photography prompt featuring a cubical tomato. Excellent fo
 - **Model:** Gemini 3 Flash / Nano Banana
 - **Tags:** #3d-render #surrealism #product-photography #minimalist #geometry
 - **Date Created:** 2026-02-11
+
+# Multi-Subject Scene with Specific Reference Assets
+
+## Description
+A complex compositional prompt designed to test spatial relationships and color consistency. This prompt requires multiple reference points to ensure specific styles for the characters, furniture, and apparel (sneakers).
+
+## The Prompt
+> Generate an image of a woman sitting in a living room with a man. The man is wearing the brown sneakers. The woman is wearing a red version of the sneakers. The woman is sitting in a white armchair with a blue suitcase next to her.
+
+## Reference Requirements
+To execute this prompt accurately, the following reference assets are needed. Just keep in mind to have them without distraction, so only clear photos which show the subjects or objects:
+1.  **The Woman:** Reference image for facial features, hair style, and general build.
+2.  **The Man:** Reference image for facial features and physical appearance.
+3.  **The Sneakers:** A clear shot of the sneaker silhouette/model to ensure the "brown" and "red" versions match in design.
+4.  **The Suitcase:** A reference for the specific blue shade and style (e.g., hardshell vs. fabric).
+5.  **The Living Room:** A reference for the architectural style and lighting (e.g., Mid-century modern vs. Industrial).
+
+## Metadata
+- **Model:** Veo / Nano Banana (Image+Image-to-Image)
+- **Tags:** #compositional #multi-subject #character-consistency #interior-design
+- **Date Created:** 2026-02-11
