@@ -1,4 +1,4 @@
-#  [Prompt Title] Handwritten Note
+#  Handwritten Note
 
 ## Description
 A photorealistic prompt for a handwritten note on a door. Great for testing text rendering and texture.
@@ -11,7 +11,7 @@ A photorealistic prompt for a handwritten note on a door. Great for testing text
 - **Tags:** #photorealistic #text #textures #marketing
 - **Date Created:** 2026-02-11
 
-# [Prompt Title] Minimalist Everyday Service Icons
+# Minimalist Everyday Service Icons
 
 ## Description
 A prompt for generating a cohesive set of minimalist vector icons. Ideal for UI/UX design inspiration, web assets, or testing a model's ability to maintain a consistent stroke weight and style across multiple subjects.
