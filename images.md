@@ -1,4 +1,4 @@
-# Handwritten Note
+#  [Prompt Title] Handwritten Note
 
 ## Description
 A photorealistic prompt for a handwritten note on a door. Great for testing text rendering and texture.
@@ -9,4 +9,17 @@ A photorealistic prompt for a handwritten note on a door. Great for testing text
 ## Metadata
 - **Model:** Gemini 3 Flash / Midjourney v6
 - **Tags:** #photorealistic #text #textures #marketing
+- **Date Created:** 2026-02-11
+
+# [Prompt Title] Minimalist Everyday Service Icons
+
+## Description
+A prompt for generating a cohesive set of minimalist vector icons. Ideal for UI/UX design inspiration, web assets, or testing a model's ability to maintain a consistent stroke weight and style across multiple subjects.
+
+## The Prompt
+> A grid of minimalist vector icons in a dark blue line art style on a light off-white or beige background. The icons represent everyday topics and services such as fast food, discount coupons, a smartphone, documents, dining, a pie chart, a user profile, food delivery, a receipt, a car, an electronic wallet or payment, and a pair of user profiles. The lines are clean, simple, and thin.
+
+## Metadata
+- **Model:** Gemini 3 Flash / Nano Banana
+- **Tags:** #vector #minimalism #iconography #ui-ux #line-art
 - **Date Created:** 2026-02-11
