@@ -1,0 +1,12 @@
+# Handwritten Note
+
+## Description
+A photorealistic prompt for a handwritten note on a door. Great for testing text rendering and texture.
+
+## The Prompt
+> Create a photorealistic image of a handwritten thank you note, resembling a slightly crumpled receipt, stuck to the outside of a door. The receipt-like note is attached with a small piece of clear tape in each corner, slightly peeling away. The note features a handwritten message expressing gratitude: 'Thank you everyone for attending Google I/O, we hope you love the fun features.' The handwriting should appear slightly imperfect, with varied line thickness and pressure, mimicking the look of ballpoint pen ink on thin paper. The note is signed with a stylized 'Google' logo, also handwritten and consistent with the penmanship. The door is a slightly worn, neutral color (e.g., light grey, off-white, or light woodgrain), and shows subtle signs of use, like slight scuffs or smudges. The surrounding lighting is natural, casting soft shadows and highlighting the texture of the door and the receipt. The scene aims for a warm, genuine, and appreciative mood, suggesting a personal message left
+
+## Metadata
+- **Model:** Gemini 3 Flash / Midjourney v6
+- **Tags:** #photorealistic #text #textures #marketing
+- **Date Created:** 2026-02-11
