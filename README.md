@@ -45,3 +45,48 @@ Output format:
 Now apply this to the following input:
 
 [USER INPUT / DATA / QUESTION / CONTENT GOES HERE]
+
+# Reusable Prompt Architect Library
+
+A high-fidelity library of modular, tested prompts for Generative AI. This repository is built for precision, organized for searchability, and equipped with a local-first generation tool.
+
+---
+
+## 🚀 Quick Start
+
+### 1. Using the Prompt Architect Tool
+We have included a built-in web tool to help you generate and export prompts in the library's standard format.
+* **Live Tool:** [Link to your GitHub Pages URL here]
+* **Manual Use:** Open `index.html` in any modern web browser.
+* **Batch Mode:** Paste a list of ideas into the "Batch" section to download a `.zip` containing individual `.md` files for your collection.
+
+### 2. Library Structure
+Prompts are categorized by their primary function to ensure the GitHub search bar ($/$) works effectively:
+* `/image-prompts`: Photorealistic, 3D, and vector iconography.
+* `/patent-analysis`: Legal-tech prompts with strict anti-hallucination protocols.
+* `/web-design`: UI/UX layouts using the **[IDEA] [THEME] [CONTENT]** framework.
+
+---
+
+## 🛠️ The Framework: Modular Prompting
+
+This library utilizes a modular variable system. Instead of static paragraphs, we use bracketed identifiers to separate concerns:
+
+- **[IDEA]**: The core subject or business concept.
+- **[THEME]**: The visual language, tone, or aesthetic constraints.
+- **[CONTENT]**: Specific textual requirements or functional steps.
+
+---
+
+## 📝 Contribution Guide
+
+To add a new prompt to this library:
+1. Use the **Prompt Architect Tool** to generate the raw markdown.
+2. Save the file using **kebab-case** naming (e.g., `minimalist-running-app.md`).
+3. Place the file in the appropriate category folder.
+4. Update the **Master Index** table in this README.
+
+---
+
+## ⚖️ License
+MIT - Feel free to use, modify, and distribute these prompts.
