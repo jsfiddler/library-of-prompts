@@ -57,7 +57,7 @@ A high-fidelity library of modular, tested prompts for Generative AI. This repos
 
 ### 1. Using the Prompt Architect Tool
 We have included a built-in web tool to help you generate and export prompts in the library's standard format.
-* **Live Tool:** [Link to your GitHub Pages URL here]
+* **Live Tool:** [ go to the Prompt Architect Tool](https://jsfiddler.github.io/library-pf-prompts/)
 * **Manual Use:** Open `index.html` in any modern web browser.
 * **Batch Mode:** Paste a list of ideas into the "Batch" section to download a `.zip` containing individual `.md` files for your collection.
 
