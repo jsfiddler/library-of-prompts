@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Architect | Single-File Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        /* Custom minimalist focus states and utility */
+        input:focus, textarea:focus {
+            outline: 2px solid #000;
+            outline-offset: -1px;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 font-sans selection:bg-slate-200">
+
+    <div class="max-w-4xl mx-auto px-6 py-20">
+        <header class="mb-16 border-b border-black pb-8">
+            <h1 class="text-xs uppercase tracking-[0.3em] font-bold mb-2">Prompt Architect v1.2</h1>
+            <p class="text-4xl font-light tracking-tighter italic">Single-File Workstation</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <section class="space-y-10">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest mb-3 font-bold text-slate-400">01. [IDEA]</label>
+                    <input type="text" id="input_idea" placeholder="e.g. Minimalist running podcast" 
+                           class="w-full border-b border-slate-300 py-2 text-lg focus:border-black transition-colors duration-300">
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-widest mb-3 font-bold text-slate-400">02. [THEME]</label>
+                    <input type="text" id="input_theme" placeholder="e.g. High contrast, hard angles" 
+                           class="w-full border-b border-slate-300 py-2 text-lg focus:border-black transition-colors duration-300">
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-widest mb-3 font-bold text-slate-400">03. [CONTENT]</label>
+                    <textarea id="input_content" rows="4" placeholder="e.g. Hero section with headline..." 
+                              class="w-full border border-slate-200 p-4 text-md focus:border-black transition-colors duration-300"></textarea>
+                </div>
+
+                <div class="pt-8 border-t border-slate-100">
+                    <label class="block text-xs uppercase tracking-widest mb-3 font-bold text-slate-400">Batch Processing (One per line)</label>
+                    <textarea id="batch_input" rows="4" placeholder="Idea 1&#10;Idea 2&#10;Idea 3" 
+                              class="w-full border border-slate-100 bg-slate-50 p-4 text-sm font-mono focus:border-black transition-colors mb-4 custom-scrollbar"></textarea>
+                    <button onclick="app.downloadBatchZip()" class="w-full bg-slate-100 border border-slate-200 py-3 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-black hover:text-white transition-all">
+                        Export Batch as .ZIP
+                    </button>
+                </div>
+            </section>
+
+            <section class="flex flex-col h-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xs uppercase tracking-widest font-bold text-slate-400 italic">Live Preview</h2>
+                    <div class="flex gap-2">
+                        <button onclick="app.copyToClipboard()" class="text-[10px] border border-slate-300 px-3 py-1 hover:bg-slate-50 uppercase tracking-tighter">Copy</button>
+                        <button onclick="app.downloadSingle()" class="text-[10px] bg-black text-white px-3 py-1 hover:bg-slate-800 uppercase tracking-tighter">Save .MD</button>
+                    </div>
+                </div>
+                
+                <div id="output_display" class="flex-grow bg-slate-50 border border-slate-100 p-8 text-sm font-mono whitespace-pre-wrap leading-relaxed text-slate-600 custom-scrollbar overflow-y-auto min-h-[400px]">
+                    </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Object-Oriented Prompt Architecture Logic
+         */
+        class PromptArchitect {
+            constructor() {
+                this.inputs = {
+                    idea: document.getElementById('input_idea'),
+                    theme: document.getElementById('input_theme'),
+                    content: document.getElementById('input_content'),
+                    batch: document.getElementById('batch_input')
+                };
+                this.display = document.getElementById('output_display');
+                this.initListeners();
+                this.update();
+            }
+
+            initListeners() {
+                ['idea', 'theme', 'content'].forEach(key => {
+                    this.inputs[key].addEventListener('input', () => this.update());
+                });
+            }
+
+            getMarkdown(idea, theme, content) {
+                return `**[IDEA]** ${idea || '...'}\n**[THEME]** ${theme || '...'}\n**[CONTENT]** ${content || '...'}`;
+            }
+
+            update() {
+                this.display.textContent = this.getMarkdown(
+                    this.inputs.idea.value,
+                    this.inputs.theme.value,
+                    this.inputs.content.value
+                );
+            }
+
+            async copyToClipboard() {
+                await navigator.clipboard.writeText(this.display.textContent);
+                this.tempNotify("Prompt Copied");
+            }
+
+            downloadSingle() {
+                const blob = new Blob([this.display.textContent], { type: 'text/markdown' });
+                this.triggerDownload(blob, this.getFilename(this.inputs.idea.value) + '.md');
+            }
+
+            async downloadBatchZip() {
+                const lines = this.inputs.batch.value.split('\n').filter(l => l.trim());
+                if (!lines.length) return alert("Batch list is empty.");
+
+                const zip = new JSZip();
+                const theme = this.inputs.theme.value || "Default Theme";
+                const content = this.inputs.content.value || "Default Content";
+
+                lines.forEach((line, i) => {
+                    const md = this.getMarkdown(line.trim(), theme, content);
+                    zip.file(`${this.getFilename(line.trim()) || 'prompt-'+i}.md`, md);
+                });
+
+                const zipBlob = await zip.generateAsync({ type: "blob" });
+                this.triggerDownload(zipBlob, `batch-${Date.now()}.zip`);
+            }
+
+            getFilename(str) {
+                return str.toLowerCase().replace(/[^a-z0-9]/g, '-').slice(0, 30);
+            }
+
+            triggerDownload(blob, name) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = name;
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+
+            tempNotify(msg) {
+                console.log(msg); // Placeholder for a toast notification system
+            }
+        }
+
+        // Initialize App
+        const app = new PromptArchitect();
+    </script>
+</body>
+</html>
