@@ -45,6 +45,7 @@ Output format:
 Now apply this to the following input:
 
 [USER INPUT / DATA / QUESTION / CONTENT GOES HERE]
+```
 
 # Reusable Prompt Architect Library
 
